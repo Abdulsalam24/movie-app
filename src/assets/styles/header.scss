@@ -1,0 +1,32 @@
+header {
+  background-image: url("../img/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45vh;
+  .home {
+    width: 95%;
+    margin: auto;
+    padding: 3rem 0;
+    color: white;
+    h1 {
+      font-size: 48px;
+    }
+    h2 {
+      font-size: 32px;
+    }
+  }
+  .form {
+    width: 90%;   
+    margin: 20px 0; 
+    form {
+      input {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 1em 1.3em;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}

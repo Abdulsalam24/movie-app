@@ -1,0 +1,45 @@
+.popular {
+  .container {
+    width: 95%;
+    margin: 20px auto;
+    max-width: 1300px;
+    .popular-select {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      h3 {
+        font-size: 24px;
+      }
+      .button {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .btn {
+          display: flex;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: center;
+          border: 1px solid gray;
+          border-radius: 30px;
+          button {
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            color: rgb(65, 65, 65);
+            text-transform: capitalize;
+            background-color: transparent;
+          }
+          .active {
+            font-size: 17px;
+            padding: 4px 10px;
+            background-color: #032541;
+            border-radius: 20px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
