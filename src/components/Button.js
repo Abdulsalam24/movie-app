@@ -3,7 +3,7 @@ import MovieContext from '../context/MovieContext';
 
 const Button = () => {
 
-  const { popular, cat, setFiltered, fetchMovie } =
+  const { popular, cat, setFiltered, fetchMovies } =
     useContext(MovieContext);
 
   const [genre, setGenre] = useState(0);
@@ -25,14 +25,14 @@ const Button = () => {
       <div className="btn">
         <button
           className={cat === 'movie' ? 'active' : ''}
-          onClick={() => fetchMovie('movie')}>
+          onClick={() => fetchMovies('movie')}>
           Streaming
         </button>
 
 
         <button
           className={cat === 'tv' ? 'active' : ''}
-          onClick={() => fetchMovie('tv')}>
+          onClick={() => fetchMovies('tv')}>
           Tv
         </button>
       </div>

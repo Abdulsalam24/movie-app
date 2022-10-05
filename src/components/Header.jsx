@@ -1,7 +1,5 @@
-import { useContext, useState } from "react";
-import "../assets/styles/header.scss";
-import MovieContext from "../context/MovieContext";
 import SearchInput from "./searchInput/SearchInput";
+import "../assets/styles/header.scss";
 
 function Header() {
   return (

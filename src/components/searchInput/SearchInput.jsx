@@ -14,17 +14,15 @@ function SearchInput() {
   };
 
   return (
-    <div className="form">
-      <form onSubmit={onSubmitSearch}>
-        <input
-          type="text"
-          placeholder="Search Movie"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button>search</button>
-      </form>
-    </div>
+    <form onSubmit={onSubmitSearch}>
+      <input
+        type="text"
+        placeholder="Search Movie"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button onClick={onSubmitSearch}>search</button>
+    </form>
   );
 }
 

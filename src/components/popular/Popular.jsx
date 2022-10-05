@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import MovieContext from "../../context/MovieContext";
 import "./popular.scss";
 function Popular() {
-  const { fetchMovie, filtered } = useContext(MovieContext);
+  const { fetchMovies, filtered } = useContext(MovieContext);
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
   useEffect(() => {
-    fetchMovie('movie');
+    fetchMovies("movie");
   }, []);
 
   useEffect(() => {

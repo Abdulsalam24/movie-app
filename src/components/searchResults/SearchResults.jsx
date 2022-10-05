@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import MovieContext from "../../context/MovieContext";
 
 function SearchResults() {
-  const { movieSearched, searchedFiltered, setSearchedFiltered } =
-    useContext(MovieContext);
+  const { movieSearched, setSearchedFiltered } = useContext(MovieContext);
+
+  const [active, setActive] = useState("");
 
   const movies = movieSearched.filter((e) => {
     return e.media_type === "movie";
@@ -17,7 +18,9 @@ function SearchResults() {
       (movie) => movie.media_type === media
     );
     setSearchedFiltered(filtered);
+    setActive(media);
   };
+
 
   return (
     <div className="search-results">
@@ -26,23 +29,47 @@ function SearchResults() {
       </div>
 
       <ul>
-        <li onClick={() => changeMedia("movie")}>
-          Movie <span>({movies.length})</span>
+        <li
+          className={active === "" ? "active" : ""}
+          onClick={() => {
+            setSearchedFiltered(movieSearched);
+            setActive("");
+          }}
+        >
+          <span>All</span>
+          <i>({movieSearched.length})</i>
         </li>
-        <li onClick={() => changeMedia("tv")}>
-          Tv Shows<span>({tv.length})</span>
+
+        <li
+          className={active === "movie" ? "active" : ""}
+          onClick={() => changeMedia("movie")}
+        >
+          <span>Movies</span>
+          <i>({movies.length})</i>
+        </li>
+
+        <li
+          className={active === "tv" ? "active" : ""}
+          onClick={() => changeMedia("tv")}
+        >
+          <span>Tv Shows</span>
+          <i>({tv.length})</i>
         </li>
         <li>
-          People<span>(0)</span>
+          <span>People</span>
+          <i>(0)</i>
         </li>
         <li>
-          Collections<span>(0)</span>
+          <span>Collections</span>
+          <i>(0)</i>
         </li>
         <li>
-          Keyboards<span>(0)</span>
+          <span>Keyboards</span>
+          <i>(0)</i>
         </li>
         <li>
-          Networks<span>(0)</span>
+          <span>Networks</span>
+          <i>(0)</i>
         </li>
       </ul>
     </div>

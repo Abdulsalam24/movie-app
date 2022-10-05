@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import { MovieContextProvider } from './context/MovieContext';
 import Home from './pages/Home'
 import MovieSearch from './pages/MovieSearch';
+import SingleMovie from './pages/SingleMovie';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Routes>
                         <Route path='/' exact element={<Home />} />
                         <Route path='/movie-search/:search' exact element={<MovieSearch />} />
+                        <Route path='/singleMovie/:id' exact element={<SingleMovie />} />
                     </Routes>
                 </MovieContextProvider>
             </Router>

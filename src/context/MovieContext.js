@@ -5,6 +5,7 @@ const MovieContext = createContext()
 
 
 export const MovieContextProvider = ({ children }) => {
+
   const navigate = useNavigate()
   const [popular, setPopular] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -13,12 +14,12 @@ export const MovieContextProvider = ({ children }) => {
   const [movieSearched, setMovieSearched] = useState([]);
   const [searchedFiltered, setSearchedFiltered] = useState([]);
 
-  console.log(searchedFiltered, 'searchedFilteredsearchedFilteredsearchedFiltered')
+  //single movie
+  const [singleMovie, setSingleMovie] = useState();
 
   const [cat, setCat] = useState('');
 
-
-  const fetchMovie = async (cat) => {
+  const fetchMovies = async (cat) => {
     setCat(cat)
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${cat}/popular?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1`
@@ -40,11 +41,19 @@ export const MovieContextProvider = ({ children }) => {
 
 
 
+  const fetchMovie = async (id) => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
+    );
+    setSingleMovie(data)
+    navigate(`/singleMovie/${id}`)
+  };
 
 
   return (
     <MovieContext.Provider value={{
       fetchMovie,
+      fetchMovies,
       setFiltered,
       setPopular,
       searchHandle,
@@ -54,6 +63,7 @@ export const MovieContextProvider = ({ children }) => {
       popular,
       filtered,
       movieSearched,
+      singleMovie,
     }}>
       {
         children
