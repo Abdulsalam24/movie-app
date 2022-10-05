@@ -5,15 +5,18 @@ const MovieContext = createContext()
 
 
 export const MovieContextProvider = ({ children }) => {
-
+  const navigate = useNavigate()
   const [popular, setPopular] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [movieSearched, setMovieSearched] = useState([]);
 
-  const [text, setText] = useState("");
+  //search
+  const [movieSearched, setMovieSearched] = useState([]);
+  const [searchedFiltered, setSearchedFiltered] = useState([]);
+
+  console.log(searchedFiltered, 'searchedFilteredsearchedFilteredsearchedFiltered')
+
   const [cat, setCat] = useState('');
 
-  const navigate = useNavigate()
 
   const fetchMovie = async (cat) => {
     setCat(cat)
@@ -25,18 +28,18 @@ export const MovieContextProvider = ({ children }) => {
     setFiltered(data.results);
   };
 
-  // https://api.themoviedb.org/3/search/movie?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false
-
-
-  const searchHandle = async (e) => {
-    e.preventDefault()
+  const searchHandle = async (text) => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false&query=${text}`
+      `https://api.themoviedb.org/3/search/multi?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false&query=${text}`
     );
 
+    setSearchedFiltered(data.results)
     setMovieSearched(data.results)
     navigate(`/movie-search/${text}`)
   };
+
+
+
 
 
   return (
@@ -45,9 +48,9 @@ export const MovieContextProvider = ({ children }) => {
       setFiltered,
       setPopular,
       searchHandle,
-      setText,
+      setSearchedFiltered,
+      searchedFiltered,
       cat,
-      text,
       popular,
       filtered,
       movieSearched,

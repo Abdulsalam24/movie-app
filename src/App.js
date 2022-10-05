@@ -13,8 +13,8 @@ function App() {
 
     return (
         <>
-            <Nav />
             <Router>
+                <Nav />
                 <MovieContextProvider>
                     <Routes>
                         <Route path='/' exact element={<Home />} />

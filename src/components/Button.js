@@ -19,7 +19,6 @@ const Button = () => {
     setFiltered(filtered)
   }, [genre])
 
-  console.log(genre, 'popularpopularpopularpopular')
 
   return (
     <div className="button">
@@ -45,18 +44,16 @@ const Button = () => {
           onClick={() => setGenre(0)}>
           All
         </button>
-
-
         {
           cat === 'tv' ? (
             <button
-              className={genre === 18 && 'active'}
+              className={genre === 18 ? 'active' : ""}
               onClick={() => setGenre(18)}>
               Action
             </button>
           ) : (
             <button
-              className={genre === 28 && 'active'}
+              className={genre === 28 ? 'active' : ""}
               onClick={() => setGenre(28)}>
               Action
             </button>

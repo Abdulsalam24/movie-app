@@ -1,0 +1,68 @@
+.movie-search {
+  .flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+    .search-results {
+      width: 20%;
+      border-radius: 10px;
+      border: 1px solid #64646f33;
+      overflow: hidden;
+      .result-head {
+        background-color: #01b4e4;
+        padding: 20px;
+        p {
+          color: white;
+        }
+
+      }
+      ul{
+        padding: 20px 0;
+        li{
+            padding: 10px 15px;
+        }
+      }
+    }
+
+    .seached-movies {
+      width: 80%;
+    }
+  }
+
+  .seached-movies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .seached-movie {
+      display: flex;
+      box-shadow: #64646f33 0px 7px 29px 0px;
+      border-radius: 10px;
+      border: 1px solid #64646f33;
+      overflow: hidden;
+
+      .img {
+        img {
+          object-fit: cover;
+          width: 6rem;
+          height: 9rem;
+          display: block;
+        }
+      }
+      .movie-info {
+        padding: 20px;
+        h4 {
+          margin-bottom: 15px;
+        }
+        span {
+          color: gray;
+        }
+        p {
+          font-size: 15px;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
