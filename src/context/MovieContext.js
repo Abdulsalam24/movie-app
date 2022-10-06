@@ -5,6 +5,9 @@ const MovieContext = createContext()
 
 
 export const MovieContextProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [isError, setIsError] = useState(false)
+
 
   const navigate = useNavigate()
   const [popular, setPopular] = useState([]);
@@ -21,32 +24,48 @@ export const MovieContextProvider = ({ children }) => {
 
   const fetchMovies = async (cat) => {
     setCat(cat)
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${cat}/popular?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1`
-    );
 
-    setPopular(data.results);
-    setFiltered(data.results);
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/${cat}/popular?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1`
+      );
+
+      setPopular(data.results);
+      setFiltered(data.results);
+      setIsLoading(false)
+    } catch (error) {
+      setIsError(true)
+    }
   };
 
   const searchHandle = async (text) => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/multi?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false&query=${text}`
-    );
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/search/multi?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false&query=${text}`
+      );
 
-    setSearchedFiltered(data.results)
-    setMovieSearched(data.results)
-    navigate(`/movie-search/${text}`)
+      setSearchedFiltered(data.results)
+      setMovieSearched(data.results)
+      setIsLoading(false)
+      navigate(`/movie-search/${text}`)
+    } catch (error) {
+      setIsError(true)
+    }
   };
 
 
 
   const fetchMovie = async (id) => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/tv/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
-    );
-    setSingleMovie(data)
-    navigate(`/singleMovie/${id}`)
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/tv/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
+      );
+      setSingleMovie(data)
+      setIsLoading(false)
+      navigate(`/singleMovie/${id}`)
+    } catch (error) {
+      setIsError(true)
+    }
   };
 
 
@@ -58,6 +77,8 @@ export const MovieContextProvider = ({ children }) => {
       setPopular,
       searchHandle,
       setSearchedFiltered,
+      isError,
+      isLoading,
       searchedFiltered,
       cat,
       popular,

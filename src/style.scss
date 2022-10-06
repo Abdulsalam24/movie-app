@@ -18,7 +18,12 @@ ul,
 li {
   list-style: none;
 }
-
+.spinner {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  // grid h-screen place-items-center
+}
 .container {
   width: 95%;
   margin: 20px auto;

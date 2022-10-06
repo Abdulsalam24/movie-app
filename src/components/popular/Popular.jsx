@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 
 import Movie from "../Movie";
 import Button from "../Button";
-import { motion } from "framer-motion";
+import { motion, useElementScroll } from "framer-motion";
 import MovieContext from "../../context/MovieContext";
 import "./popular.scss";
 function Popular() {

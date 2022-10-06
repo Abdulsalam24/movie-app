@@ -58,10 +58,17 @@
       border-radius: 10px;
       border: 1px solid #64646f33;
       overflow: hidden;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.4s ease-in-out;
       &:hover {
         box-shadow: #1d1d2033 0px 7px 29px 0px;
         scale: 1.01;
+        .img-div {
+          .img {
+            img {
+              scale: 1.1;
+            }
+          }
+        }
       }
 
       .img-div {
