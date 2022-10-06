@@ -1,19 +1,27 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import SeachedMovie from "../components/searchedMovies/SeachedMovie";
+import SeachedMovie from "../components/home/SeachedMovie";
 import SearchInput from "../components/searchInput/SearchInput";
 import MovieContext from "../context/MovieContext";
-import SearchResults from "../components/searchResults/SearchResults";
 import "../assets/styles/movieSearch.scss";
+import Spinner from "../components/Spinner";
+import SearchResults from "../components/home/SearchResults";
 
 function MovieSearch() {
-  const { searchedFiltered, searchHandle } = useContext(MovieContext);
+  const { searchedFiltered, searchHandle, isLoading, isError } =
+    useContext(MovieContext);
   const { search } = useParams();
 
   useEffect(() => {
     searchHandle(search);
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <h1>There are no movies that matched your query.</h1>;
+  }
   return (
     <div className="movie-search container">
       <SearchInput />

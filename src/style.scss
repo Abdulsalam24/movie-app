@@ -33,20 +33,32 @@ li {
 .app {
   .carousel-div {
     margin: 20px auto;
+
+    ::-webkit-scrollbar {
+      height: 7px;
+      width: 7px;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgb(174, 174, 174);
+    }
+
     .carousel {
       cursor: grab;
-      overflow: hidden;
-      .inner-carousel {
-        display: flex;
-        .item {
-          min-width: 15rem;
-          min-height: 15rem;
-          padding: 10px;
-          img {
-            border-radius: 2rem;
-            pointer-events: none;
-            cursor: pointer;
-          }
+      overflow-x: scroll;
+      display: flex;
+
+      .item {
+        min-width: 15rem;
+        min-height: 15rem;
+        padding: 10px;
+
+        img {
+          border-radius: 2rem;
+          pointer-events: none;
+          cursor: pointer;
         }
       }
     }

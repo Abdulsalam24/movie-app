@@ -1,0 +1,25 @@
+.single-movie {
+  .hero {
+    position: relative;
+    height: 90vh;
+    .thumnail {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to left, #b9b9b97a, #dcdcdc50);
+    }
+    .flex {
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      overflow: solid red;
+      >div{
+      }
+    }
+  }
+}

@@ -93,8 +93,12 @@
           color: gray;
         }
         p {
+          display: -webkit-box;
           font-size: 15px;
           margin-top: 20px;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       }
     }

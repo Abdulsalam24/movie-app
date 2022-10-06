@@ -8,8 +8,6 @@ const Button = () => {
 
   const [genre, setGenre] = useState(0);
 
-
-
   useEffect(() => {
     if (genre === 0) {
       setFiltered(popular)
@@ -29,14 +27,12 @@ const Button = () => {
           Streaming
         </button>
 
-
         <button
           className={cat === 'tv' ? 'active' : ''}
           onClick={() => fetchMovies('tv')}>
           Tv
         </button>
       </div>
-
 
       <div className="btn">
         <button

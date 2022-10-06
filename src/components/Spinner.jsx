@@ -1,9 +1,9 @@
-import { GridLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 
 function Spinner() {
   return (
     <div className="spinner">
-      <GridLoader color="#000000" />
+      <BeatLoader color="#032541" />
     </div>
   );
 }

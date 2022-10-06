@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import MovieContext from "../../context/MovieContext";
 
 function SearchResults() {
-  const { movieSearched, setSearchedFiltered } = useContext(MovieContext);
+  const { movieSearched, setSearchedFiltered, setCat } =
+    useContext(MovieContext);
 
   const [active, setActive] = useState("");
 
@@ -19,8 +20,8 @@ function SearchResults() {
     );
     setSearchedFiltered(filtered);
     setActive(media);
+    setCat(media);
   };
-
 
   return (
     <div className="search-results">

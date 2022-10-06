@@ -30,7 +30,7 @@ function SeachedMovie({ movie }) {
         <h4>{title || name}</h4>
         <span>{release_date || first_air_date}</span>
         <p>
-          {overview.slice(0, 255)}
+          {overview}
           <b>...</b>
         </p>
       </div>
