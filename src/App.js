@@ -15,14 +15,12 @@ function App() {
     return (
         <>
             <Router>
-                <Nav />
                 <MovieContextProvider>
+                    <Nav />
                     <Routes>
-
                         <Route path='/' exact element={<Home />} />
                         <Route path='/movie-search/:search' exact element={<MovieSearch />} />
-                        <Route path='/singleMovie/:id' exact element={<SingleMovie />} />
-
+                        <Route path='/singleMovie/:id/:type' exact element={<SingleMovie />} />
                     </Routes>
                 </MovieContextProvider>
             </Router>

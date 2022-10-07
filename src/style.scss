@@ -13,6 +13,10 @@ button {
   border: none;
   cursor: pointer;
 }
+a{
+  text-decoration: none;
+  
+}
 
 ul,
 li {
@@ -60,6 +64,36 @@ li {
           pointer-events: none;
           cursor: pointer;
         }
+      }
+    }
+  }
+}
+
+.refresh{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: white;
+  div{
+    background-color: #032541;
+    padding: 30px;
+    button{
+      margin: 20px 0;
+      padding: 20px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      text-transform: capitalize;
+      background-color: #8d8d8d;
+      &:hover{
+      background-color: #5b5b5b;
+      border-radius: 10px;
+
       }
     }
   }

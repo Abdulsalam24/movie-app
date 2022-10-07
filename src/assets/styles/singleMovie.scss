@@ -1,24 +1,111 @@
 .single-movie {
   .hero {
     position: relative;
-    height: 90vh;
+    height: 89vh;
+    z-index: 1;
+    background-position: 340px -360px;
+    background-size: cover;
+    background-repeat: repeat;
+    color: white;
     .thumnail {
       position: absolute;
+      background: linear-gradient(to bottom right, rgba(31.5, 10.5, 10.5, 1), rgba(31.5, 10.5, 10.5, 0.84));
+      height: 100%;
+      width: 100%;
+      z-index: -1;
       top: 0;
-      right: 0;
       left: 0;
-      bottom: 0;
-      background-image: linear-gradient(to left, #b9b9b97a, #dcdcdc50);
     }
     .flex {
-      z-index: 3;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 90%;
+      width: 95%;
       margin: auto;
-      overflow: solid red;
-      >div{
+      padding: 3rem 0;
+      .img {
+        width: 24%;
+        img {
+          height: 100%;
+        }
+      }
+      .info {
+        width: 73%;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        .name {
+          h1 {
+            font-size: 35px;
+          }
+          span {
+            font-weight: 400;
+          }
+        }
+        .movie-genre {
+          span:nth-child(2) {
+          }
+          .genre {
+            display: inline-block;
+            span {
+              padding: 0 10px;
+            }
+          }
+        }
+        .rate {
+          .score {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            text-transform: capitalize;
+            p {
+              margin: 40px 0;
+              span {
+                font-size: 1rem;
+                padding: 20px 15px;
+                border-radius: 50%;
+                background-color: #081c22;
+                border: 5px solid #21d07a;
+                color: white;
+                font-weight: 600;
+                box-shadow: rgba(28, 101, 44, 0.498) 0px 54px 55px,
+                  rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                  rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                  rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+              }
+            }
+          }
+        }
+        .tagline {
+          font-style: italic;
+          font-weight: 400;
+          color: #545454;
+        }
+        .overview {
+          h4 {
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 20px 0 10px;
+          }
+          p {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        .creator {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 60%;
+          margin: 15px 0;
+          p {
+            margin: 10px 0;
+          }
+        }
       }
     }
   }

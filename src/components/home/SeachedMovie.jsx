@@ -11,13 +11,16 @@ function SeachedMovie({ movie }) {
     release_date,
     first_air_date,
     backdrop_path,
+    media_type,
   } = movie;
 
   const { fetchMovie } = useContext(MovieContext);
 
+  console.log(media_type , 'mocccccccccccccccddddddddddddddcccccccccccc')
+
   return (
     <div className="seached-movie">
-      <div className="img-div" onClick={() => fetchMovie(id)}>
+      <div className="img-div" onClick={() => fetchMovie(id,media_type)}>
         <div className="img">
           <img
             src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
@@ -31,7 +34,6 @@ function SeachedMovie({ movie }) {
         <span>{release_date || first_air_date}</span>
         <p>
           {overview}
-          <b>...</b>
         </p>
       </div>
     </div>

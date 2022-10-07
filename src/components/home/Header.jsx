@@ -1,5 +1,5 @@
 import "../../assets/styles/header.scss";
-import SearchInput from "../searchInput/SearchInput";
+import SearchInput from "../SearchInput";
 
 function Header() {
   return (

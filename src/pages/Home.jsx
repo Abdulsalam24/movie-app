@@ -3,9 +3,8 @@ import Popular from "../components/home/popular/Popular";
 import Header from "../components/home/Header";
 
 import Spinner from "../components/Spinner";
-// import Header from "../components/Header";
-// import Popular from "../components/popular/Popular";
 import MovieContext from "../context/MovieContext";
+import RefreshPage from "../components/RefreshPage";
 
 const Home = () => {
   const { fetchMovies, isLoading, isError } = useContext(MovieContext);
@@ -18,7 +17,7 @@ const Home = () => {
     return <Spinner />;
   }
   if (isError) {
-    return <h1>Something is wrong</h1>;
+    return <RefreshPage/>
   }
 
   return (

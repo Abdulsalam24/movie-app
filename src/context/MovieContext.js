@@ -6,8 +6,12 @@ const MovieContext = createContext()
 
 
 export const MovieContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false)
+  
+  const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
+
+  const [navSearch, setNavSearch] = useState(false);
+
 
 
   const navigate = useNavigate()
@@ -21,7 +25,7 @@ export const MovieContextProvider = ({ children }) => {
   //single movie
   const [singleMovie, setSingleMovie] = useState({});
 
-  const [cat, setCat] = useState('movie');
+  const [cat, setCat] = useState('');
 
   const fetchMovies = async (cat) => {
     setCat(cat)
@@ -44,35 +48,36 @@ export const MovieContextProvider = ({ children }) => {
   const searchHandle = async (text) => {
     setIsLoading(true)
     if (text === "") {
-      setIsError(true)
+      navigate(`/`)
     }
     try {
       const { data } = await tmbd.get(
         `https://api.themoviedb.org/3/search/multi?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US&page=1&include_adult=false&query=${text}`
       );
 
+      if (data.results = []) {
+        setIsError(true)
+      }
       setSearchedFiltered(data.results)
       setMovieSearched(data.results)
       setIsLoading(false)
+      setNavSearch(false)
       navigate(`/movie-search/${text}`)
     } catch (error) {
       setIsError(true)
     }
   };
 
-  console.log(cat,'22222222ididdiidd')
 
-  const fetchMovie = async (id) => {
-    // setIsLoading(true)
-    console.log(cat,id,'ididdiidd')
+  const fetchMovie = async (id, media) => {
+    console.log(media, 'media_typemedia_typemedia_type')
     try {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/${cat}/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
+        `https://api.themoviedb.org/3/${media}/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
       );
-      console.log(data, 'idddddddddddddddddd')
 
       setSingleMovie(data)
-      navigate(`/singleMovie/${id}`)
+      navigate(`/singleMovie/${id}/${media}`)
       setIsLoading(false)
     } catch (error) {
       setIsError(true)
@@ -87,10 +92,12 @@ export const MovieContextProvider = ({ children }) => {
       setPopular,
       searchHandle,
       setSearchedFiltered,
+      setCat,
+      setNavSearch,
+      navSearch,
       isError,
       isLoading,
       searchedFiltered,
-      setCat,
       cat,
       popular,
       filtered,
