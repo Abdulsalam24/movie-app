@@ -6,6 +6,7 @@ import MovieContext from "../context/MovieContext";
 import "../assets/styles/movieSearch.scss";
 import Spinner from "../components/Spinner";
 import SearchResults from "../components/home/SearchResults";
+import BackButton from "../components/BackButton";
 
 function MovieSearch() {
   const { searchedFiltered, searchHandle, isLoading, isError } =
@@ -19,10 +20,12 @@ function MovieSearch() {
   if (isLoading) {
     return <Spinner />;
   }
+
   console.log(isError, "iseeeeeeeeeeeeeeeeee");
 
   return (
     <div className="movie-search container">
+      <BackButton url="/"/>
       <SearchInput />
       <div className="flex">
         <SearchResults />

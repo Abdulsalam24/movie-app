@@ -1,12 +1,17 @@
 import React, { useContext, useState } from "react";
-import { AiOutlineMenuFold } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../assets/styles/nav.scss";
 import MovieContext from "../context/MovieContext";
 import SearchInput from "./SearchInput";
+import { FaSearch } from "react-icons/fa";
 
 function Nav() {
   const { setNavSearch, navSearch } = useContext(MovieContext);
+  const { pathname } = useLocation();
+
+  if (pathname.includes("movie-search")) {
+    console.log(pathname, "lddddddddddddddddd");
+  }
 
   return (
     <nav>
@@ -28,14 +33,14 @@ function Nav() {
         </div>
         <div className="right">
           <ul>
-            <li onClick={() => setNavSearch(!navSearch)}>search</li>
+            <li onClick={() => setNavSearch(!navSearch)}>
+              <FaSearch />
+            </li>
           </ul>
         </div>
-        <div className="menu">
-          <AiOutlineMenuFold fill="#ffffff" />
-        </div>
       </div>
-      {navSearch && (
+
+      {navSearch && !pathname.includes("movie-search") && (
         <div className="search">
           <SearchInput />
         </div>

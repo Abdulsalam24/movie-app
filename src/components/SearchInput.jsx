@@ -11,6 +11,7 @@ function SearchInput() {
   const onSubmitSearch = (e) => {
     e.preventDefault();
     searchHandle(text);
+    setText("")
   };
 
   return (

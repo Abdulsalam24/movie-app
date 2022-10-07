@@ -56,22 +56,6 @@ function SearchResults() {
           <span>Tv Shows</span>
           <i>({tv.length})</i>
         </li>
-        <li>
-          <span>People</span>
-          <i>(0)</i>
-        </li>
-        <li>
-          <span>Collections</span>
-          <i>(0)</i>
-        </li>
-        <li>
-          <span>Keyboards</span>
-          <i>(0)</i>
-        </li>
-        <li>
-          <span>Networks</span>
-          <i>(0)</i>
-        </li>
       </ul>
     </div>
   );

@@ -11,7 +11,7 @@ function Popular() {
     <div className="popular">
       <div className="container">
         <div className="popular-select">
-          <h3>What's Popular</h3>
+          <h2>What's Popular</h2>
           <Button />
         </div>
         <div className="carousel-div">

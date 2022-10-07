@@ -16,12 +16,14 @@ function App() {
         <>
             <Router>
                 <MovieContextProvider>
-                    <Nav />
-                    <Routes>
-                        <Route path='/' exact element={<Home />} />
-                        <Route path='/movie-search/:search' exact element={<MovieSearch />} />
-                        <Route path='/singleMovie/:id/:type' exact element={<SingleMovie />} />
-                    </Routes>
+                    <div className="app">
+                        <Nav />
+                        <Routes>
+                            <Route path='/' exact element={<Home />} />
+                            <Route path='/movie-search/:search' exact element={<MovieSearch />} />
+                            <Route path='/singleMovie/:id/:type' exact element={<SingleMovie />} />
+                        </Routes>
+                    </div>
                 </MovieContextProvider>
             </Router>
         </>

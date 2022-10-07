@@ -3,16 +3,19 @@
     .popular-select {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 30px;
-      h3 {
-        font-size: 24px;
-      }
+      // hh23 {
+      //   font-size: 24px;
+      // }
       .button {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 20px;
         .btn {
           display: flex;
+
           justify-content: flex-start;
           align-items: stretch;
           align-content: center;
@@ -34,6 +37,28 @@
             background-color: #032541;
             border-radius: 20px;
             color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .popular {
+    .container {
+      .popular-select {
+        flex-wrap: wrap;
+        h2 {
+          font-size: 25px;
+        }
+        .button {
+          flex-wrap: wrap;
+          .btn {
+            flex-direction: row-reverse;
+            .active {
+              font-size: 14px;
+            }
           }
         }
       }
