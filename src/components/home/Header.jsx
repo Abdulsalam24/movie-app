@@ -5,10 +5,8 @@ function Header() {
   return (
     <header>
       <div className="home">
-        <h1>Welcome.</h1>
-        <h2>
-          Millions of movies, TV shows and people to discover. Explore now.
-        </h2>
+        <h1>Welcome</h1>
+        <h2>It is the home of movies and television shows. Explore now.</h2>
         <SearchInput />
       </div>
     </header>

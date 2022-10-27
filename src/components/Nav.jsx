@@ -9,9 +9,6 @@ function Nav() {
   const { setNavSearch, navSearch } = useContext(MovieContext);
   const { pathname } = useLocation();
 
-  if (pathname.includes("movie-search")) {
-    console.log(pathname, "lddddddddddddddddd");
-  }
 
   return (
     <nav>
@@ -22,14 +19,14 @@ function Nav() {
               <Link to="/">HOM</Link>
             </h1>
           </div>
-          <ul>
+          {/* <ul>
             <li>
               <Link to="/">movies</Link>
             </li>
             <li>
               <Link to="/">people</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className="right">
           <ul>

@@ -7,15 +7,13 @@ import Spinner from "../components/Spinner";
 import BackButton from "../components/BackButton";
 
 function SingleMovie() {
-  const { singleMovie, fetchMovie, isLoading, cat, isError } =
+  const { singleMovie, fetchMovie, isLoading, isError } =
     useContext(MovieContext);
 
-  const movieUrl =
-    cat === "tv"
-      ? "https://www.themoviedb.org/t/p/w600_and_h700_bestv2"
-      : "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
-
   const { id, type } = useParams();
+
+
+  const movieUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
 
   useEffect(() => {
     fetchMovie(id, type);
@@ -84,7 +82,6 @@ function SingleMovie() {
                     %
                   </span>
                 </p>
-
                 <p>
                   user <br />
                   score

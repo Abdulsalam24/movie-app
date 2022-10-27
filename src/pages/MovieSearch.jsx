@@ -21,7 +21,6 @@ function MovieSearch() {
     return <Spinner />;
   }
 
-  console.log(isError, "iseeeeeeeeeeeeeeeeee");
 
   return (
     <div className="movie-search container">

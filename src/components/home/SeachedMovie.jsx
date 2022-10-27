@@ -16,7 +16,6 @@ function SeachedMovie({ movie }) {
 
   const { fetchMovie } = useContext(MovieContext);
 
-  console.log(media_type , 'mocccccccccccccccddddddddddddddcccccccccccc')
 
   return (
     <div className="seached-movie">

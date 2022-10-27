@@ -82,68 +82,73 @@ li {
   max-width: 1300px;
 }
 
-.app {
-  max-width: 1400px;
-  margin: auto;
-  .carousel-div {
+.carousel-div {
+  display: flex;
+  overflow-x: scroll;
+
+  scroll-snap-align: x mandatory;
+
+  
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(174, 174, 174);
+  }
+  
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
     margin: 20px auto;
-    ::-webkit-scrollbar {
-      height: 7px;
-      width: 7px;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: rgb(174, 174, 174);
-    }
-    .carousel {
-      cursor: grab;
-      overflow-x: scroll;
-      display: flex;
-
-      .item {
-        min-width: 15rem;
-        min-height: 15rem;
-        padding: 10px;
-        position: relative;
-        .img {
-          img {
-            border-radius: 2rem;
-            pointer-events: none;
-            cursor: pointer;
-          }
+    .item {
+      scroll-snap-align: center;
+      min-width: 25%;
+      padding: 10px;
+      position: relative;
+      .img {
+        img {
+          border-radius: 2rem;
+          pointer-events: none;
+          cursor: pointer;
         }
-        .info {
-          padding: 10px 20px;
-          h4 {
-            margin-bottom: 5px;
-          }
+      }
+      .info {
+        padding: 10px 20px;
+        h4 {
+          margin-bottom: 5px;
         }
-        .rate {
-          position: absolute;
-          bottom: 60px;
-          right: 20px;
+      }
+      .rate {
+        position: absolute;
+        bottom: 80px;
+        right: 20px;
 
-          .score {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            text-transform: capitalize;
-            p {
-              margin: 40px 0;
-              span {
-                font-size: 0.8rem;
-                padding: 10px 5px;
-                border: 3px solid #21d07a;
-                box-shadow: 1px 1px 1px rgb(118, 118, 118);
-              }
+        .score {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 600;
+          text-transform: capitalize;
+          p {
+            margin: 40px 0;
+            span {
+              font-size: 0.8rem;
+              padding: 10px 5px;
+              border: 3px solid #21d07a;
+              box-shadow: 1px 1px 1px rgb(118, 118, 118);
             }
           }
         }
       }
     }
   }
+
+
+  
 }
 
 .refresh {
@@ -207,7 +212,6 @@ img {
       }
       .carousel {
         display: flex;
-        // cursor: grab;
         overflow-x: scroll;
         scroll-snap-type: x proximity;
 

@@ -68,12 +68,10 @@ export const MovieContextProvider = ({ children }) => {
 
 
   const fetchMovie = async (id, media) => {
-    console.log(media, 'media_typemedia_typemedia_type')
     try {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/${media}/${id}?api_key=6c288757e59a68ab616ba95e467779dc&language=en-US`
       );
-
       setSingleMovie(data)
       navigate(`/singleMovie/${id}/${media}`)
       setIsLoading(false)

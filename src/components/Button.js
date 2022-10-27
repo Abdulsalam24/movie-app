@@ -63,9 +63,6 @@ const Button = () => {
         }
 
 
-
-
-
         <button
           className={genre === 35 ? 'active' : ''}
           onClick={() => setGenre(35)}>
