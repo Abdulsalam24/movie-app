@@ -110,10 +110,13 @@ li {
       padding: 10px;
       position: relative;
       .img {
+          cursor: pointer;
+        
         img {
           border-radius: 2rem;
           pointer-events: none;
           cursor: pointer;
+          
         }
       }
       .info {
@@ -221,6 +224,8 @@ img {
           padding: 10px;
           position: relative;
           .img {
+          cursor: pointer;
+            
             img {
               border-radius: 2rem;
               pointer-events: none;
